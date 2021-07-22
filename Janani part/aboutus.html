@@ -22,6 +22,114 @@
             font-weight: 300;
             letter-spacing: 1px;
             }
+            
+            
+            * {
+              box-sizing: border-box;
+            }            
+            .row > .column {
+              padding: 0 8px;
+            }            
+            .row:after {
+              content: "";
+              display: table;
+              clear: both;
+            }            
+            .column {
+              float: left;
+              width: 25%;
+            }            
+            /* The Modal (background) */
+            .modal {
+              display: none;
+              position: fixed;
+              z-index: 1;
+              padding-top: 100px;
+              left: 0;
+              top: 0;
+              width: 100%;
+              height: 100%;
+              overflow: auto;
+              background-color: black;
+            }           
+            /* Modal Content */
+            .modal-content {
+              position: relative;
+              background-color: #fefefe;
+              margin: auto;
+              padding: 0;
+              width: 90%;
+              max-width: 1200px;
+            }           
+            /* The Close Button */
+            .close {
+              color: white;
+              position: absolute;
+              top: 10px;
+              right: 25px;
+              font-size: 35px;
+              font-weight: bold;
+            }
+            
+            .close:hover,  .close:focus {
+              color: #999;
+              text-decoration: none;
+              cursor: pointer;
+            }            
+            .mySlides {
+              display: none;
+            }            
+            .cursor {
+              cursor: pointer;
+            }            
+            /* Next & previous buttons */
+            .prev,            .next {
+              cursor: pointer;
+              position: absolute;
+              top: 50%;
+              width: auto;
+              padding: 16px;
+              margin-top: -50px;
+              color: white;
+              font-weight: bold;
+              font-size: 20px;
+              transition: 0.6s ease;
+              border-radius: 0 3px 3px 0;
+              user-select: none;
+              -webkit-user-select: none;
+            }            
+            /* Position the "next button" to the right */
+            .next {
+              right: 0;
+              border-radius: 3px 0 0 3px;
+            }            
+            /* On hover, add a black background color with a little bit see-through */
+            .prev:hover,            .next:hover {
+              background-color: rgba(0, 0, 0, 0.8);
+            }                   
+            img {
+              margin-bottom: -4px;
+            }            
+            .caption-container {
+              text-align: center;
+              background-color: black;
+              padding: 2px 16px;
+              color: white;
+            }            
+            .demo {
+              opacity: 0.6;
+            }            
+            .active,.demo:hover {
+              opacity: 1;
+            }            
+            img.hover-shadow {
+              transition: 0.3s;
+            }            
+            .hover-shadow:hover {
+              box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            }
+            
+            
         </style>
     </head>
     <body>
@@ -412,35 +520,83 @@
             <div class = "hr"></div><br>
             <P style = "color:grey;">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</P>
             <div class = "Offers">
-                <div class = "row mb-2">
-                    <div class = "col-md-4 images">
-                        <img src = "https://livedemo00.template-help.com/wt_prod-19592/images/project-1-570x380.jpg"/>&nbsp;
-                        <br><h5>Textbook Rentals</h5><br>
+                <div class="row mb-2">
+                    <div class="col-md-4">
+                      <img src="https://livedemo00.template-help.com/wt_prod-19592/images/project-1-570x380.jpg" style="width:100%" onclick="openModal();currentSlide(1)" class="hover-shadow cursor iii">
+                      <br><br><h5>Textbook Rentals</h5><br>
                     </div>
-                    
-                    <div class = "col-md-4 images">
-                        <img src = "https://livedemo00.template-help.com/wt_prod-19592/images/project-2-570x380.jpg"/>&nbsp;
-                        <br><h5>eTextbooks</h5><br>
+                    <div class="col-md-4">
+                      <img src="https://livedemo00.template-help.com/wt_prod-19592/images/project-2-570x380.jpg" style="width:100%" onclick="openModal();currentSlide(2)" class="hover-shadow cursor iii">
+                      <br><br><h5>eTextbooks</h5><br>
                     </div>
-                    <div class = "col-md-4 images">
-                        <img src = "https://livedemo00.template-help.com/wt_prod-19592/images/project-3-570x380.jpg"/>&nbsp;
-                        <br><h5>Used Textbooks</h5><br>
-                    </div>
-                </div><br><br>
-                <div class = "row mb-2">
-                    <div class = "col-md-4 images">
-                        <img src = "https://livedemo00.template-help.com/wt_prod-19592/images/project-4-570x380.jpg"/>&nbsp;
-                        <br><h5>Cheap Textbooks</h5><br>
-                    </div>
-                    <div class = "col-md-4 images">
-                        <img src = "https://livedemo00.template-help.com/wt_prod-19592/images/project-5-570x380.jpg"/>&nbsp;
-                        <br><h5>New Textbooks</h5><br>
-                    </div>
-                    <div class = "col-md-4 images">
-                        <img src = "https://livedemo00.template-help.com/wt_prod-19592/images/project-6-570x380.jpg"/>&nbsp;
-                        <br><h5>Instant Book Return</h5><br>
+                    <div class="col-md-4">
+                      <img src="https://livedemo00.template-help.com/wt_prod-19592/images/project-3-570x380.jpg" style="width:100%" onclick="openModal();currentSlide(3)" class="hover-shadow cursor  iii">
+                      <br><br><h5>Used Textbooks</h5><br>
                     </div>
                 </div>
+                <div class = "row mb-2">
+                    <div class="col-md-4">
+                      <img src="https://livedemo00.template-help.com/wt_prod-19592/images/project-4-570x380.jpg" style="width:100%" onclick="openModal();currentSlide(4)" class="hover-shadow cursor iii">
+                      <br><br><h5>Cheap Textbooks</h5><br>
+                    </div>
+                    <div class="col-md-4">
+                        <img src="https://livedemo00.template-help.com/wt_prod-19592/images/project-5-570x380.jpg" style="width:100%" onclick="openModal();currentSlide(5)" class="hover-shadow cursor iii">
+                        <br><br><h5>New Textbooks</h5><br>
+                      </div>
+                      <div class="col-md-4">
+                        <img src="https://livedemo00.template-help.com/wt_prod-19592/images/project-6-570x380.jpg" style="width:100%" onclick="openModal();currentSlide(6)" class="hover-shadow cursor iii">
+                        <br><br><h5>Instant Book Return</h5><br>
+                      </div>
+                  </div>
+                  
+                  <div id="myModal" class="modal">
+                    <span class="close cursor" onclick="closeModal()">&times;</span>
+                    <div class="modal-content">          
+                        <div class="mySlides">
+                            <img src="https://livedemo00.template-help.com/wt_prod-19592/images/project-1-570x380.jpg" style="width:100%" class = "iii">
+                        </div>          
+                        <div class="mySlides">
+                            <img src="https://livedemo00.template-help.com/wt_prod-19592/images/project-2-570x380.jpg" style="width:100%" class = "iii">
+                        </div>          
+                        <div class="mySlides">
+                            <img src="https://livedemo00.template-help.com/wt_prod-19592/images/project-3-570x380.jpg" style="width:100%" class = "iii">
+                        </div>              
+                        <div class="mySlides">
+                            <img src="https://livedemo00.template-help.com/wt_prod-19592/images/project-4-570x380.jpg" style="width:100%" class = "iii">
+                        </div>   
+                        <div class="mySlides">
+                            <img src="https://livedemo00.template-help.com/wt_prod-19592/images/project-5-570x380.jpg" style="width:100%" class = "iii">
+                        </div>
+                        <div class="mySlides">
+                            <img src="https://livedemo00.template-help.com/wt_prod-19592/images/project-6-570x380.jpg" style="width:100%" class = "iii">
+                        </div>           
+                        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                        <a class="next" onclick="plusSlides(1)">&#10095;</a>          
+                        <div class="caption-container">
+                            <p id="caption"></p>
+                        </div>         
+                        <div class = "row mb-2">
+                            <div class = "col-sm-2">
+                                <img class="demo cursor iii" src="https://livedemo00.template-help.com/wt_prod-19592/images/project-1-570x380.jpg" style="width:100%" onclick="currentSlide(1)" alt="Textbook Rentals">
+                            </div>
+                            <div class = "col-sm-2">
+                                <img class="demo cursor iii" src="https://livedemo00.template-help.com/wt_prod-19592/images/project-2-570x380.jpg" style="width:100%" onclick="currentSlide(2)" alt="eTextbooks">
+                            </div>
+                            <div class = "col-sm-2">
+                                <img class="demo cursor iii" src="https://livedemo00.template-help.com/wt_prod-19592/images/project-3-570x380.jpg" style="width:100%" onclick="currentSlide(3)" alt="Used Textbooks">
+                            </div>
+                            <div class = "col-sm-2">
+                                <img class="demo cursor iii" src="https://livedemo00.template-help.com/wt_prod-19592/images/project-4-570x380.jpg" style="width:100%" onclick="currentSlide(4)" alt="Cheap Textbooks">
+                            </div>
+                            <div class = "col-sm-2">
+                                <img class="demo cursor iii" src="https://livedemo00.template-help.com/wt_prod-19592/images/project-5-570x380.jpg" style="width:100%" onclick="currentSlide(5)" alt="New Textbooks">
+                            </div>
+                            <div class = "col-sm-2">
+                                <img class="demo cursor iii" src="https://livedemo00.template-help.com/wt_prod-19592/images/project-6-570x380.jpg" style="width:100%" onclick="currentSlide(6)" alt="Instant Book Return">
+                            </div>
+                        </div>
+                    </div>
+                  </div>
             </div><br>
             <button onclick="window.open('../service2.html', '_parent')" class = "services" ><h2 style = "margin-left:0;">VIEW ALL SERVICES</h2></button>
         </div><br><br>
@@ -451,5 +607,43 @@
             <b style = "color:yellow;"> Rent now!</b></h5>
         </div>
     
+        
+        <script>
+            function openModal() {
+              document.getElementById("myModal").style.display = "block";
+            }            
+            function closeModal() {
+              document.getElementById("myModal").style.display = "none";
+            }            
+            var slideIndex = 1;
+            showSlides(slideIndex);
+            
+            function plusSlides(n) {
+              showSlides(slideIndex += n);
+            }            
+            function currentSlide(n) {
+              showSlides(slideIndex = n);
+            }            
+            function showSlides(n) {
+              var i;
+              var slides = document.getElementsByClassName("mySlides");
+              var dots = document.getElementsByClassName("demo");
+              var captionText = document.getElementById("caption");
+              if (n > slides.length) {slideIndex = 1}
+              if (n < 1) {slideIndex = slides.length}
+              for (i = 0; i < slides.length; i++) {
+                  slides[i].style.display = "none";
+              }for (i = 0; i < dots.length; i++) {
+                  dots[i].className = dots[i].className.replace(" active", "");
+              }
+              slides[slideIndex-1].style.display = "block";
+              dots[slideIndex-1].className += " active";
+              captionText.innerHTML = dots[slideIndex-1].alt;
+            }
+        </script>
+        
+        
+        
+        
     </body>
 </html>
